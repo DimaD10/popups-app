@@ -1,0 +1,305 @@
+@import 'null.scss';
+@import 'ui.scss';
+@import 'var.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.popup-wrapper {
+    background-color: rgba(37, 37, 37, 0.75);
+    backdrop-filter: blur(6px);
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 65px;
+    @media (max-width: 767.98px) {
+        padding: 56px 15px;
+    }
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.popup {
+    max-width: 550px;
+    width: 100%;
+    margin: auto 0;
+
+    position: relative;
+
+    font-family: Inter;
+
+    &__wrapper {
+        border: 1px solid #DEE2E6;
+        display: flex;
+        flex-direction: column;
+    
+        background-color: #F8F9FA;
+        overflow: hidden;
+        border-radius: 11px;
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.20);
+    }
+
+    &_first {
+        h2 {
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+
+                width: 72px;
+                height: 10px;
+
+                background: url('../img/decor/title-decor.svg') 100% no-repeat;
+            }
+        }
+
+        p {
+            margin-bottom: 42px;
+            z-index: 4;
+            @media (max-width: 767.98px) {
+                margin-bottom: calc(16px + (42 - 16) * ((100vw - 320px) / (767.98 - 320)));
+            }
+        }
+        .popup__body {
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: url('../img/decor/first-bg.svg') no-repeat 100%;
+
+                opacity: .3;
+            }
+            
+        }
+    }
+
+    &__close-btn {
+        background-color: transparent;
+
+        position: absolute;
+        top: -26px;
+        right: -56px;
+
+        width: 26px;
+        height: 26px;
+
+        transition: opacity ease .3s;
+
+        @media (max-width: 767.98px) {
+            right: 0;
+            top: -44px;
+        }
+
+        &:hover {
+            opacity: .6;
+        }
+    }
+
+    &__body {
+        padding: 46px 62px;
+        @media (max-width: 767.98px) {
+            padding-left: calc(16px + (62 - 16) * ((100vw - 320px) / (767.98 - 320)));
+            padding-right: calc(16px + (62 - 16) * ((100vw - 320px) / (767.98 - 320)));
+            padding-top: calc(26px + (46 - 26) * ((100vw - 320px) / (767.98 - 320)));
+            padding-bottom: calc(26px + (46 - 26) * ((100vw - 320px) / (767.98 - 320)));
+        }
+
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2, h3, h4 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #2B3035;
+            z-index: 5;
+        }
+
+        p {
+            color: #2B3035;
+            text-align: center;
+            font-size: 18px;
+            @media (max-width: 767.98px) {
+                font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (767.98 - 320)));
+            }
+            font-weight: 300;
+            line-height: 140%;
+        }
+    }
+
+    // .popup__bottom
+    &__bottom {
+        display: flex;
+        height: 70px;
+        z-index: 99;
+    }
+    // .popup__button
+    &__button {
+        flex: 1 1 50%;
+
+        font-size: 20px;
+        padding: 4px 6px;
+        @media (max-width: 767.98px) {
+            font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (767.98 - 320)));
+        }
+        font-weight: 400;
+        color: #fff;
+
+        transition: color ease .3s, background-color ease .3s;
+
+        // .popup__button_blue
+        &_blue {
+            background-color: $blue;
+
+            &:hover {
+                background-color: #6EA8FE;
+            }
+        }
+        // .popup__button_gray
+        &_gray {
+            background-color: #87939F;
+
+            &:hover {
+                background-color: #737C84;
+            }
+        }
+    }
+
+    .icon-app {
+        margin: 32px 0 28px 0;
+
+        width: 120px;
+        height: 120px;
+        border-radius: 22px;
+
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+
+            bottom: -17px;
+            right: -22px;
+            width: 51px;
+            height: 46px;
+            background: url('../img/decor/icon-decor.svg') no-repeat 100%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &.dark {
+        .popup__wrapper {
+            border: 1px solid #495057;
+            background-color: #2B3035;
+        }
+        .popup__decor {
+            opacity: .6;
+        }
+        .popup__body {
+            p, h2, h3, h4 {
+                color: #fff;
+            }
+        }
+        .popup__button {
+            &_gray {
+                background-color: #495057;
+                color: #fff;
+
+                &:hover {
+                    background-color: #666E76;
+                }
+            }
+        }
+    }
+}
+
+
+.popup {
+    // .popup__decor-wrapper
+    &__decor-wrapper {
+        animation: decorAnim ease infinite 8s;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        position: absolute;
+    }
+    &__decor-wrapper-red {
+        animation: decorAnim ease infinite 10s;
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        .popup__decor {
+            position: absolute;
+            background-color: rgba(255, 84, 46, 0.3) !important;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: -1;
+
+            &:nth-child(1) {
+                top: -74px;
+                left: -83px;
+            }
+            &:nth-child(2) {
+                bottom: -50px;
+                top: auto;
+                right: -100px;
+            }
+        }
+    }
+    // .popup__decor
+    &__decor {
+        position: absolute;
+        background-color: rgba(110, 168, 254, 0.3);
+        border-radius: 50%;
+        filter: blur(40px);
+        z-index: -1;
+
+        width: 122px;
+        height: 122px;
+
+        &:nth-child(1) {
+            bottom: 0;
+            left: -14px;
+        }
+        &:nth-child(2) {
+            top: 37px;
+            right: -26px;
+        }
+    }
+}
+
+@keyframes decorAnim {
+    0% {
+        transform: rotate(0deg);
+    } 100% {
+        transform: rotate(360deg);
+    }
+}
