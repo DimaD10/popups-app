@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Установить приложение</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            background-color: #252525;
+        }
+    </style>
 </head>
 <body>
     <div class="popup-wrapper">
-        <div class="popup popup_first">
+        <div class="popup dark">
             <button class="popup__close-btn">
                 <img src="../img/icons/cross-icon.svg" alt="">
             </button>
@@ -20,22 +25,20 @@
                         <div class="popup__decor"></div>
                     </div>
 
-                    <div class="popup__decor-wrapper-red">
-                        <div class="popup__decor"></div>
-                        <div class="popup__decor"></div>
+                    <h2>Установка</h2>
+
+                    <p>Выберите свою платформу</p>
+
+                    <div class="popup-labels">
+                        <input type="radio" id="android-choose" name="radio-platform">
+                        <input type="radio" id="ios-choose" name="radio-platform">
+
+                        <label for="android-choose" id="android-choose-l" class="popup-labels_label">Android</label>
+                        <label for="ios-choose" id="ios-choose-l" class="popup-labels_label">IOS</label>
                     </div>
-
-                    <h2>Приложение</h2>
-
-                    <div class="icon-app">
-                        <img src="../img/app-icon.png" alt="">
-                    </div>
-
-                    <p>Рекомендуем установить приложение, чтобы повысить безопасность вашего аккаунта</p>
                 </div>
                 <div class="popup__bottom">
-                    <button class="popup__button popup__button_blue">Установить</button>
-                    <button class="popup__button popup__button_gray">Напомнить позже</button>
+                    <button class="popup__button popup__button_blue">Настроить приложение</button>
                 </div>
             </div>
         </div>
